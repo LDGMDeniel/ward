@@ -1,0 +1,43 @@
+body{
+ background-color: #CCCCCC;
+ color: #000000;
+}
+#table1{
+ border-color: #CCCCCC
+}
+td{
+ padding: 4px 8px;
+}
+#green0{
+ background-color: #E6FCE6;
+}
+#green1{
+ background-color: #D9EFD9;
+}
+#blue0{
+ background-color: #C9CCFF;
+}
+#blue1{
+ background-color: #B9BCFF;
+}
+#red0{
+ background-color: #FFC9CC;
+}
+#red1{
+ background-color: #FFB9BC;
+}
+#gray0{
+ background-color: #FCFCF9;
+}
+#gray1{
+ background-color: #ECECE9;
+}
+#t_gray{
+ color: #666666;
+}
+a:link{
+ color: #000000;
+}
+a:visited{
+ color: #000000;
+}
