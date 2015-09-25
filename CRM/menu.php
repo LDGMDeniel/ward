@@ -15,7 +15,8 @@ switch($page){
   case '/CRM/task-new.php':
    case '/CRM/task-arch.php':
     case '/CRM/task-zoom.php': $links[4]='Задачи'; break;
- case '/CRM/list.php?q=find':$links[5]='Поиск'; break;
+ case '/CRM/list.php?q=find':$links[5]='<span id="t_gray">Поиск</span>'; break;
+ case '/CRM/create.php':$links[5]='<span id="t_gray">Создать</span>'; break;
  case '/info.php':$links[5]='<span id="t_gray">Карточка</span>'; break;
 }
 //каждый раз переписывать и эту хрень
