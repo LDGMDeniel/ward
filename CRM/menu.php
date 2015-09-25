@@ -1,4 +1,5 @@
 <?php
+echo('uri:'.$_SERVER['REQUEST_URI']);
 $page=$_SERVER['REQUEST_URI'];
 $links=array('<a href="../index.php">TRS</a>',
 '<a href="index.php">CRM</a>',
