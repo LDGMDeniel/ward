@@ -7,8 +7,6 @@ if(isset($_SESSION['uid'])){
  html_head_print('CRM',$inc_css,$_SESSION['css']);
  include_once('menu.php');
 
- //тип и id GETом, для закладок
-
  mysql_close($dbc_sqlink);
  echo('</body></html>');
 }else{

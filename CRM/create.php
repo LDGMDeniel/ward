@@ -9,8 +9,9 @@ if(isset($_SESSION['uid'])){
 
  echo('<table cellspacing="0" rules="rows" border="1" id="table1" align="center" width="800">'."\r\n".
  '<tr><td>');
- if(isset($_POST['type'])){ 	echo('<form action="cpost.php" method="post">'."\r\n");  switch ($_POST['type']){  	case 'man'://создать контакт
-  	 //срань господн€ этож SQL
+ if(isset($_POST['type'])){ 	echo('<form action="cpost.php" method="post">'."\r\n");  switch ($_POST['type']){  	case 'man'://создать контакт
+  	 echo('<input name="type" type="hidden" value="man">');
+  	 //срань господн€ этож SQL, хорошоб убрать этот запрос, да маловато шансов
   	 $sqlresult=mysql_query('SELECT `c_id`, `c_name` FROM `clients`;',$dbc_sqlink);
 			 if($sqlresult!=false){
 			  if(mysql_num_rows($sqlresult)>0){
@@ -23,31 +24,33 @@ if(isset($_SESSION['uid'])){
 			 }else{
 			  echo('запрос к клиентам - провален');
 			 }
-  	 echo('<h3>—оздать контакт '.$_POST['name'].' со следующими данными:</h3>'."\r\n".
+  	 echo('<h3> онтактное лицо '.$_POST['name'].' со следующими данными:</h3>'."\r\n".
   	 '<input name="name" type="hidden" value="'.$_POST['name'].'">'."\r\n");
   	 echo('ќсновное средство св€зи: <select size="1" name="ltype">'."\r\n".
 				' <option value="P">телефон</option>'."\r\n".
 				' <option value="E">e-mail</option>'."\r\n".
 				'</select> <input name="lvalue" type="text" size="30"><br>');
-  	 echo('ƒолжность: <input name="Name" type="text" value="" size="26"><br>');
+  	 echo('ƒолжность/описание: <input name="Name" type="text" value="" size="26"><br>');
   	 echo('ќрганизаци€: <select size="1" name="org">'."\r\n");
   	 $i=2;
+ 			echo(' <option value="0">- выбрать -</option>'."\r\n");
   	 while(isset($clients[$i])){
  				echo(' <option value="'.$i.'">'.$clients[$i].'</option>'."\r\n");
  				$i+=1;
 				}
 				echo('</select> или <input name="orgn" type="text" size="3"> еЄ номер(но не оба)<br>'."\r\n");
-    echo('ѕримечани€: <textarea name="info" rows=5 cols=50 wrap="off"></textarea>');
+    echo('ѕримечани€:<br><textarea name="info" rows=5 cols=50 wrap="off"></textarea>');
   	 break;
+
   	case 'org'://создать клиента
-  	 echo('<h3>—оздать организацию '.$_POST['name'].' со следующими данными:</h3>'."\r\n".
+  	 echo('<input name="type" type="hidden" value="org">');
+  	 echo('<h3>ќрганизаци€ '.$_POST['name'].' со следующими данными:</h3>'."\r\n".
   	 '<input name="name" type="hidden" value="'.$_POST['name'].'">'."\r\n");
+  	 echo('ѕримечани€:<br><textarea name="info" rows=5 cols=50 wrap="off"></textarea><br>');
   	 echo('<label>[<input name="addman" type="checkbox" value="yes">'."\r\n".
-  	 'и создать основной контакт]</label>'."\r\n".
-  	 '<label>[<input name="addname" type="checkbox" value="yes">'."\r\n".
-  	 'и не заполн€ть его]</label>'."\r\n");
+  	 'и создать основной контакт]</label>'."\r\n");
   	 break;  }
-  echo('</form>');
+  echo('<br><br><input type="submit" value="—оздать"></form>');
  }else{ 	echo('<form action="create.php" method="post">'."\r\n".
 	 '<select size="1" name="type">'."\r\n".
 	 ' <option value="man">»м€ контакта:</option>'."\r\n".
