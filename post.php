@@ -21,6 +21,7 @@ if(isset($_SESSION['uid'])){
  -message
   newstatus* - при смене статуса заявки(*не реализовано)*/
  $post_result='';
+ $post_timer=1;
  //reworking
  if(isset($_POST['todo'])){
   switch($_POST['todo']){
@@ -32,7 +33,7 @@ if(isset($_SESSION['uid'])){
   }
  }
  if($post_result==''){$post_result='Успешно добавлено. Или выглядит так.';}
- html_head_print('TRS',$inc_css,$_SESSION['css'],'<meta http-equiv="refresh" content="2; url=index.php">'."\r\n");
+ html_head_print('TRS',$inc_css,$_SESSION['css'],'<meta http-equiv="refresh" content="'.$post_timer.'; url=index.php">'."\r\n");
  echo('<center>'.$post_result.
  '<br>Подождите пару секунд, или перейдите <a href="index.php">на главную.</a></center>'."\r\n");
  mysql_close($dbc_sqlink);
